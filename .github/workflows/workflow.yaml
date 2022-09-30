@@ -24,4 +24,10 @@ jobs:
         run: echo $BAR
         env:  
           BAR: ${{ github.event.issue.title }}
-      
+      - run: |
+        echo "Issue title: ${{ github.event.issue.title }}"
+        echo ${{ steps.barstep.outputs.injected }}
+      - run: |
+        echo "Issue body: ${{ github.event.issue.body }}"
+        echo ${{ steps.foostep.outputs.injected }}
+ 
