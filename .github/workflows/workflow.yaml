@@ -16,14 +16,17 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - id: test
+        run: echo "12" >> $GITHUB_ENV
       - id: foostep
         run: echo $FOO
         env:  
           FOO: ${{ github.event.issue.body }}
       - id: barstep
-        run: echo $BAR
+        run: echo $BAR 
         env:  
           BAR: ${{ github.event.issue.title }}
+      - run: echo $GITHUB_ENV
       - run: echo ${{ steps.barstep.outputs.injected }}
       - run: echo ${{ steps.foostep.outputs.injected }}
  
