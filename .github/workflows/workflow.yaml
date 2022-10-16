@@ -17,7 +17,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - id: test
-        run: echo "12" > $TEMP_ENV
+        run: export TEMP_ENV="12"
       - id: foostep
         run: echo $FOO
         env:  
